@@ -1,0 +1,25 @@
+{
+  "presets": [
+    "react"
+  ],
+  "env": {
+    "commonjs": {
+      "presets": [
+        [ "es2015", { "modules": "commonjs" } ]
+      ],
+      "plugins": [
+        "transform-class-properties",
+        "transform-object-rest-spread"
+      ]
+    },
+    "es": {
+      "presets": [
+        [ "es2015", { "modules": false } ]
+      ],
+      "plugins": [
+        "transform-class-properties",
+        "transform-object-rest-spread"
+      ]
+    }
+  }
+}

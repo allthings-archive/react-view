@@ -1,0 +1,33 @@
+{
+  "name": "@allthings/react-view",
+  "author": "Allthings",
+  "license": "MIT",
+  "description": "A fully flexed View component for React.",
+  "version": "1.0.0",
+  "files": [
+    "lib",
+    "es",
+    "src"
+  ],
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rm -rf lib es",
+    "create:svg": "./bin/svg.sh src",
+    "build:commonjs": "BABEL_ENV=commonjs babel --quiet src --out-dir lib",
+    "build:es": "BABEL_ENV=es babel --quiet src --out-dir es",
+    "build": "npm run clean && npm run build:es && npm run build:commonjs",
+    "prepublish": "npm run clean && npm run build"
+  },
+  "dependencies": {
+    "glamor": "2.20.20",
+    "react": "15.4.2"
+  },
+  "devDependencies": {
+    "babel-cli": "6.18.0",
+    "babel-plugin-transform-class-properties": "6.19.0",
+    "babel-plugin-transform-object-rest-spread": "6.20.2",
+    "babel-preset-es2015": "6.18.0",
+    "babel-preset-react": "6.16.0"
+  }
+}
