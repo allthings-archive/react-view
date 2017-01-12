@@ -1,5 +1,4 @@
 # react-view
----
 
 A `View` component heavily inspired by [angular-material's layout](https://material.angularjs.org/latest/layout/introduction).
 
