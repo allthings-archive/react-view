@@ -3,7 +3,7 @@
   "author": "Allthings",
   "license": "MIT",
   "description": "A fully flexed View component for React.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "files": [
     "lib",
     "es",
