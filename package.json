@@ -13,7 +13,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rm -rf lib es",
-    "create:svg": "./bin/svg.sh src",
     "build:commonjs": "BABEL_ENV=commonjs babel --quiet src --out-dir lib",
     "build:es": "BABEL_ENV=es babel --quiet src --out-dir es",
     "build": "npm run clean && npm run build:es && npm run build:commonjs",
