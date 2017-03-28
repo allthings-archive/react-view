@@ -53,14 +53,17 @@ class View extends Component {
       'none', 'flex', 'nogrow', 'grow', 'initial', 'auto', 'noshrink',
       5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 95, 90, 100,
       33, 66
-    ])
+    ]),
+
+    onRef: PropTypes.func
   }
 
   static defaultProps = {
     alignH: 'start',
     alignV: 'stretch',
     fill: false,
-    flex: 'none'
+    flex: 'none',
+    onRef: noop => noop
   }
 
   /**
@@ -117,6 +120,7 @@ class View extends Component {
       fill,
       flex,
       children,
+      onRef,
       ...restProps
     } = this.props
 
@@ -153,7 +157,7 @@ class View extends Component {
     }
 
     return (
-      <div {...css(styles)} {...restProps}>
+      <div ref={onRef} {...css(styles)} {...restProps}>
         {children}
       </div>
     )
