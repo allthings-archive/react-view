@@ -1,5 +1,7 @@
 # react-view
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/allthings/react-view.svg)](https://greenkeeper.io/)
+
 A `View` component heavily inspired by [angular-material's layout](https://material.angularjs.org/latest/layout/introduction).
 
 ## Install
