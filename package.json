@@ -17,7 +17,8 @@
     "build:commonjs": "BABEL_ENV=commonjs babel --quiet src --out-dir lib",
     "build:es": "BABEL_ENV=es babel --quiet src --out-dir es",
     "build": "npm run clean && npm run build:es && npm run build:commonjs",
-    "prepublish": "npm run lint && npm run clean && npm run build"
+    "prepublish": "npm run lint && npm run clean && npm run build",
+    "postversion": "git push --tags origin HEAD"
   },
   "dependencies": {
     "glamor": "^2.20.24",
