@@ -42,7 +42,7 @@ class View extends Component {
     // wrap
     wrap: PropTypes.oneOf([
       'inherit', 'initial', 'wrap', 'nowrap', 'wrap-reverse'
-    ])
+    ]),
 
     /**
      * Element
