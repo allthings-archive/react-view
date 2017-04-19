@@ -25,10 +25,6 @@ class View extends Component {
     /**
      * Layout for children
      */
-    // direction
-    direction: PropTypes.oneOf([
-      'row', 'column'
-    ]),
     // alignment horizontal
     alignH: PropTypes.oneOf([
       'none', 'start', 'center', 'end', 'space-around', 'space-between'
@@ -37,12 +33,16 @@ class View extends Component {
     alignV: PropTypes.oneOf([
       'none', 'start', 'center', 'end', 'stretch'
     ]),
-    // wrap
-    wrap: PropTypes.oneOf([
-      'inherit', 'initial', 'wrap', 'nowrap', 'wrap-reverse'
+    // direction
+    direction: PropTypes.oneOf([
+      'row', 'column'
     ]),
     // fill
     fill: PropTypes.bool,
+    // wrap
+    wrap: PropTypes.oneOf([
+      'inherit', 'initial', 'wrap', 'nowrap', 'wrap-reverse'
+    ])
 
     /**
      * Element
@@ -52,7 +52,6 @@ class View extends Component {
       5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 95, 90, 100,
       33, 66
     ]),
-
     onRef: PropTypes.func
   }
 
@@ -61,11 +60,11 @@ class View extends Component {
     alignV: 'stretch',
     fill: false,
     flex: 'none',
-    onRef: noop => noop
+    onRef: _ => _
   }
 
   /**
-   * appends 'flex-' to 'start' and 'end'
+   * Appends 'flex-' to 'start' and 'end'
    * @param {String} alignment
    * @return {String}
    */
@@ -89,7 +88,7 @@ class View extends Component {
     }
 
     /**
-     * css value of flex: flex-grow flex-shrink flex-basis
+     * CSS value of flex: flex-grow flex-shrink flex-basis
      */
     switch (flex) {
       case 'none':
@@ -111,14 +110,14 @@ class View extends Component {
 
   render () {
     const {
-      direction,
-      alignV,
       alignH,
-      wrap,
+      alignV,
+      children,
+      direction,
       fill,
       flex,
-      children,
       onRef,
+      wrap,
       ...restProps
     } = this.props
 
@@ -131,10 +130,10 @@ class View extends Component {
     if (direction) {
       styles = {
         ...styles,
+        alignContent: this.getCssAlignValue(alignV),
+        alignItems: this.getCssAlignValue(alignV),
         display: 'flex',
         flexDirection: direction,
-        alignItems: this.getCssAlignValue(alignV),
-        alignContent: this.getCssAlignValue(alignV),
         justifyContent: this.getCssAlignValue(alignH)
       }
 
@@ -143,13 +142,14 @@ class View extends Component {
       if (fill) {
         styles = {
           ...styles,
-          margin: 0,
-          width: '100%',
           height: '100%',
-          minHeight: '100%'
+          margin: 0,
+          minHeight: '100%',
+          width: '100%'
         }
       }
     }
+
     if (flex) {
       styles.flex = this.getCssFlexValue(flex)
     }
