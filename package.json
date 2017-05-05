@@ -21,7 +21,7 @@
     "postversion": "git push --tags origin HEAD"
   },
   "dependencies": {
-    "glamor": "^2.20.24",
+    "glamor": "^2.20.25",
     "prop-types": "^15.5.8"
   },
   "devDependencies": {
